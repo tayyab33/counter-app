@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clock</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        user-select: none;
+      }
+      .clock {
+        background-color: rgb(77, 80, 80);
+        color: white;
+        border-radius: 50%;
+        width: 400px;
+        height: 400px;
+        border: 1px solid black;
+        position: relative;
+        margin: auto;
+        margin-top: 3rem;
+      }
+      body {
+        background-color: lightskyblue;
+      }
+      .clock::after {
+        content: "";
+        position: absolute;
+        background-color: black;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -40%);
+        z-index: 12;
+      }
+      .clock .number {
+        --rotation: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 2rem;
+        transform: rotate(var(--rotation));
+      }
+      .clock .number1 {
+        --rotation: 30deg;
+      }
+      .clock .number2 {
+        --rotation: 60deg;
+      }
+      .clock .number3 {
+        --rotation: 90deg;
+      }
+      .clock .number4 {
+        --rotation: 120deg;
+      }
+      .clock .number5 {
+        --rotation: 150deg;
+      }
+      .clock .number6 {
+        --rotation: 180deg;
+      }
+      .clock .number7 {
+        --rotation: 210deg;
+      }
+      .clock .number8 {
+        --rotation: 240deg;
+      }
+      .clock .number9 {
+        --rotation: 270deg;
+      }
+      .clock .number10 {
+        --rotation: 300deg;
+      }
+      .clock .number11 {
+        --rotation: 330deg;
+      }
+      .clock .number12 {
+        --rotation: 360deg;
+      }
+      .clock .hand {
+        --rotation: 90;
+        position: absolute;
+        background-color: black;
+        /* width: 12px;
+           height: 50%; */
+        bottom: 50%;
+        left: 50%;
+        border: 1px solid white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        z-index: 10;
+        transform-origin: bottom;
+        transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+        border-radius: 12px;
+      }
+      .clock .hand.second {
+        width: 5px;
+        height: 40%;
+        background-color: red;
+      }
+      .clock .hand.minutes {
+        width: 10px;
+        height: 37%;
+        /* background-color: red; */
+      }
+      .clock .hand.hours {
+        width: 14px;
+        height: 30%;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="hand hours" data-hour-hand></div>
+      <div class="hand minutes" data-minute-hand></div>
+      <div class="hand second" data-second-hand></div>
+      <div class="number number1">1</div>
+      <div class="number number2">2</div>
+      <div class="number number3">3</div>
+      <div class="number number4">4</div>
+      <div class="number number5">5</div>
+      <div class="number number6">6</div>
+      <div class="number number7">7</div>
+      <div class="number number8">8</div>
+      <div class="number number9">9</div>
+      <div class="number number10">10</div>
+      <div class="number number11">11</div>
+      <div class="number number12">12</div>
+    </div>
+    <script>
+           setInterval(() => {
+               let hours = document.querySelector("[data-hour-hand]");
+               let minutes = document.querySelector("[data-hour-minutes]");
+               let second = document.querySelector("[data-hour-second]");
+               let d = new Date();
+               let mhours = d.getHours();
+               let mminutes = d.getHours();
+               let msecond = d.getSeconds();
+                sethours = 30*mhours + mminutes/2;
+                setminuts = 6*mminutes;
+                setseconds = 6*msecond;
+                hours.style.transform = `rotate(${sethours}deg)`;
+                
+           }, 1000);
+    </script>
+    </body>
+</html>
